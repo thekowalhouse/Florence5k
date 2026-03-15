@@ -1,6 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState, useEffect } from 'react'
 
+/* ─── Registration Google Form URL ─── */
+/* Replace the URL below with your actual Google Form link */
+const REGISTRATION_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform'
+
 /* ─── Icon Components ─── */
 function CalendarIcon({ className }: { className?: string }) {
   return (
@@ -111,7 +115,7 @@ function Navigation() {
                 {link.label}
               </a>
             ))}
-            <a href="#pricing" className="btn-primary text-white px-5 py-2 rounded-full text-sm font-semibold">
+            <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary text-white px-5 py-2 rounded-full text-sm font-semibold">
               Register Now
             </a>
           </div>
@@ -137,7 +141,7 @@ function Navigation() {
                 {link.label}
               </a>
             ))}
-            <a href="#pricing" onClick={() => setMobileOpen(false)} className="block btn-primary text-white text-center px-5 py-3 rounded-full text-sm font-semibold mt-3">
+            <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="block btn-primary text-white text-center px-5 py-3 rounded-full text-sm font-semibold mt-3">
               Register Now
             </a>
           </div>
@@ -186,7 +190,7 @@ function Hero() {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-          <a href="#pricing" className="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold tracking-wide">
+          <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold tracking-wide">
             Register Today
           </a>
           <a href="#about" className="btn-secondary px-8 py-4 rounded-full text-lg font-semibold tracking-wide">
@@ -505,7 +509,7 @@ function Pricing() {
                   <span className="text-gold-500 font-bold">&#10003;</span> Supporting local history
                 </li>
               </ul>
-              <a href="#" className="block w-full bg-gold-400 hover:bg-gold-500 text-black font-semibold py-3 px-6 rounded-full text-center transition-colors">
+              <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-gold-400 hover:bg-gold-500 text-black font-semibold py-3 px-6 rounded-full text-center transition-colors">
                 Register
               </a>
             </div>
@@ -539,7 +543,7 @@ function Pricing() {
                   <span className="text-burgundy-500 font-bold">&#10003;</span> Supporting local history
                 </li>
               </ul>
-              <a href="#" className="btn-primary block w-full text-white font-semibold py-3 px-6 rounded-full text-center">
+              <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary block w-full text-white font-semibold py-3 px-6 rounded-full text-center">
                 Register
               </a>
             </div>
@@ -571,7 +575,7 @@ function Pricing() {
                   <span className="text-navy-500 font-bold">&#10003;</span> Supporting local history
                 </li>
               </ul>
-              <a href="#" className="block w-full bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-6 rounded-full text-center transition-colors">
+              <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-6 rounded-full text-center transition-colors">
                 Register
               </a>
             </div>
@@ -650,7 +654,7 @@ function CallToAction() {
           fitness, and historic pride. Every registration supports our shared heritage.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#pricing" className="btn-primary text-white px-10 py-4 rounded-full text-lg font-semibold tracking-wide">
+          <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary text-white px-10 py-4 rounded-full text-lg font-semibold tracking-wide">
             Register Now
           </a>
         </div>
