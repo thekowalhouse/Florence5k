@@ -1,21 +1,65 @@
 @import "tailwindcss";
-@import "highlight.js/styles/github-dark.css";
+
+@theme {
+  --color-burgundy-50: #fdf2f2;
+  --color-burgundy-100: #fce4e4;
+  --color-burgundy-200: #f9cccc;
+  --color-burgundy-300: #f3a3a3;
+  --color-burgundy-400: #e96b6b;
+  --color-burgundy-500: #bd0202;
+  --color-burgundy-600: #a50202;
+  --color-burgundy-700: #8b0000;
+  --color-burgundy-800: #6d0101;
+  --color-burgundy-900: #4a0101;
+
+  --color-navy-50: #eef1f7;
+  --color-navy-100: #d4dae8;
+  --color-navy-200: #a9b5d1;
+  --color-navy-300: #7e90ba;
+  --color-navy-400: #536ba3;
+  --color-navy-500: #2d4a7c;
+  --color-navy-600: #1B2A4A;
+  --color-navy-700: #162240;
+  --color-navy-800: #111a33;
+  --color-navy-900: #0c1226;
+
+  --color-gold-50: #fdf9ef;
+  --color-gold-100: #f9efd3;
+  --color-gold-200: #f0dba3;
+  --color-gold-300: #e5c46f;
+  --color-gold-400: #d4a843;
+  --color-gold-500: #c8972a;
+  --color-gold-600: #a57720;
+  --color-gold-700: #7d5a18;
+  --color-gold-800: #5c4213;
+  --color-gold-900: #3d2c0d;
+
+  --color-cream: #FDF8F0;
+  --color-warm-white: #FEFCF9;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  @apply m-0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  margin: 0;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #2D2D2D;
+  background-color: var(--color-warm-white);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
 }
 
-/* Custom scrollbar styles */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -25,256 +69,120 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(156, 163, 175, 0.5);
+  background-color: rgba(27, 42, 74, 0.3);
   border-radius: 4px;
-  transition: background-color 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(156, 163, 175, 0.7);
+  background-color: rgba(27, 42, 74, 0.5);
 }
 
-/* Smooth scrolling behavior */
-html {
-  scroll-behavior: smooth;
+/* Hero section */
+.hero-gradient {
+  background: linear-gradient(135deg, #0c1226 0%, #1B2A4A 40%, #2d4a7c 70%, #162240 100%);
 }
 
-/* Messages container specific smooth scroll */
-.messages-container {
-  scroll-behavior: smooth;
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(189, 2, 2, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212, 168, 67, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(27, 42, 74, 0.3) 0%, transparent 50%);
 }
 
-/* Smooth transitions for dark mode */
-html {
-  transition: background-color 0.3s ease;
+/* Section divider */
+.section-divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-burgundy-700), var(--color-gold-400), var(--color-burgundy-700));
 }
 
-/* Markdown content styles */
-.prose {
-  max-width: none;
-  color: #e5e7eb; /* text-gray-200 */
+/* Pricing card hover effect */
+.pricing-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* .prose p {
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-} */
-
-.prose code {
-  color: #e5e7eb;
-  background-color: rgba(31, 41, 55, 0.5);
-  padding: 0.2em 0.4em;
-  border-radius: 0.375rem;
-  font-size: 0.875em;
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(27, 42, 74, 0.15);
 }
 
-.prose pre {
-  background-color: rgba(31, 41, 55, 0.5);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 1.25em 0;
-  overflow-x: auto;
-}
-
-.prose pre code {
-  background-color: transparent;
-  padding: 0;
-  border-radius: 0;
-  color: inherit;
-}
-
-.prose h1, .prose h2, .prose h3, .prose h4 {
-  color: #f9fafb; /* text-gray-50 */
-  /* margin-top: 2em; */
-  /* margin-bottom: 1em; */
-}
-
-.prose ul, .prose ol {
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-  padding-left: 1.625em;
-}
-
-.prose li {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-.prose blockquote {
-  border-left-color: #f97316; /* orange-500 */
-  background-color: rgba(249, 115, 22, 0.1);
-  padding: 1em;
-  margin: 1.25em 0;
-  border-radius: 0.5rem;
-}
-
-.prose hr {
-  border-color: rgba(249, 115, 22, 0.2);
-  margin: 2em 0;
-}
-
-.prose a {
-  color: #f97316; /* orange-500 */
-  text-decoration: underline;
-  text-decoration-thickness: 0.1em;
-  text-underline-offset: 0.2em;
-}
-
-.prose a:hover {
-  color: #fb923c; /* orange-400 */
-}
-
-.prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.25em 0;
-}
-
-.prose th, .prose td {
-  padding: 0.75em;
-  border: 1px solid rgba(249, 115, 22, 0.2);
-}
-
-.prose th {
-  background-color: rgba(249, 115, 22, 0.1);
-  font-weight: 600;
-}
-
-/* Message transition animations */
-.message-enter {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.message-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
-}
-
-.message-exit {
-  opacity: 1;
-}
-
-.message-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
-}
-
-/* Smooth streaming animation */
-@keyframes fadeIn {
+/* Fade-in animation on scroll */
+@keyframes fadeInUp {
   from {
     opacity: 0;
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.streaming-message {
-  animation: fadeIn 0.15s ease-in;
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
-/* Cursor animation for streaming text - smooth pulse like ChatGPT */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scaleY(0.95);
-  }
+/* Nav backdrop */
+.nav-backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.streaming-cursor::after {
-  content: '▋';
-  animation: pulse 1.5s ease-in-out infinite;
-  margin-left: 2px;
-  color: #f97316;
+/* Gold accent underline */
+.gold-underline {
+  position: relative;
   display: inline-block;
-  transform-origin: center;
 }
 
-/* Add/update these styles to match AI formatting capabilities */
-.prose h1 {
-  font-size: 2em;
-  /* margin-top: 1em; */
-  margin-bottom: 0.5em;
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold-400), var(--color-gold-300));
+  border-radius: 2px;
 }
 
-.prose h2 {
-  font-size: 1.5em;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
+/* Partner logo styling */
+.partner-logo {
+  filter: grayscale(20%);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.prose h3 {
-  font-size: 1.25em;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
+.partner-logo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
-.prose ul {
-  list-style-type: disc;
-  padding-left: 1.5em;
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-burgundy-600) 0%, var(--color-burgundy-700) 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
 }
 
-.prose ol {
-  list-style-type: decimal;
-  padding-left: 1.5em;
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-burgundy-500) 0%, var(--color-burgundy-600) 100%);
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+  transform: translateY(-2px);
 }
 
-.prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1em 0;
+.btn-secondary {
+  border: 2px solid var(--color-gold-400);
+  color: var(--color-gold-400);
+  transition: all 0.3s ease;
 }
 
-.prose th,
-.prose td {
-  border: 1px solid rgba(249, 115, 22, 0.2);
-  padding: 0.5em;
+.btn-secondary:hover {
+  background: var(--color-gold-400);
+  color: var(--color-navy-800);
 }
 
-.prose th {
-  background-color: rgba(249, 115, 22, 0.1);
-}
-
-.prose strong {
-  color: #f9fafb; /* text-gray-50 */
-  font-weight: 600;
-}
-
-.prose em {
-  font-style: italic;
-}
-
-.prose blockquote {
-  border-left: 4px solid #f97316; /* orange-500 */
-  padding-left: 1em;
-  margin: 1em 0;
-  color: #d1d5db; /* text-gray-300 */
-}
-
-/* Ensure code blocks match the AI's formatting */
-.prose code {
-  color: #e5e7eb;
-  background-color: rgba(31, 41, 55, 0.5);
-  padding: 0.2em 0.4em;
-  border-radius: 0.375rem;
-  font-size: 0.875em;
-}
-
-.prose pre {
-  background-color: rgba(31, 41, 55, 0.5);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 1em 0;
-}
-
-.prose pre code {
-  background-color: transparent;
-  padding: 0;
-  border-radius: 0;
+/* Map placeholder */
+.map-container {
+  border: 2px solid var(--color-navy-100);
+  border-radius: 12px;
+  overflow: hidden;
 }

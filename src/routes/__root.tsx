@@ -4,8 +4,6 @@ import {
   HeadContent,
   Scripts,
 } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-import { ConvexClientProvider } from '../convex'
 
 import appCss from '../styles.css?url'
 
@@ -20,7 +18,11 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Chat Starter',
+        title: 'Florence 5K Run/Walk — Against the Current',
+      },
+      {
+        name: 'description',
+        content: 'Join the Florence 5K Run/Walk "Against the Current" fundraiser at NP Dodge Park along the riverfront trail. Presented by the Florence Historical Foundation.',
       },
     ],
     links: [
@@ -28,27 +30,37 @@ export const Route = createRootRoute({
         rel: 'stylesheet',
         href: appCss,
       },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossOrigin: 'anonymous',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap',
+      },
     ],
   }),
 
   component: () => (
     <RootDocument>
       <Outlet />
-      <TanStackRouterDevtools />
     </RootDocument>
   ),
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
       <body>
-        <ConvexClientProvider>
-          {children}
-        </ConvexClientProvider>
+        {children}
         <Scripts />
       </body>
     </html>
