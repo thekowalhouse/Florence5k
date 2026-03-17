@@ -1,6 +1,6 @@
 {
-  "short_name": "TanStack Chat", 
-  "name": "TanStack Chat Template",
+  "short_name": "Florence 5K",
+  "name": "Florence 5K Run/Walk — Against the Current",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#1B2A4A",
+  "background_color": "#FDF8F0"
 }
