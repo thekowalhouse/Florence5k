@@ -224,10 +224,10 @@ function About() {
             Join us for the Florence 5K, a community run celebrating the history, spirit, and resilience of Omaha&rsquo;s historic Florence neighborhood.
           </p>
           <p className="text-black text-lg leading-relaxed">
-            Located in North Omaha along the Missouri River, Florence is one of the oldest settlements in Nebraska, with roots dating back to the 1840s when pioneers established Winter Quarters in the area. Today, the neighborhood remains a vibrant community known for its historic landmarks, local businesses, and strong community traditions.
+            Located in Florence along the Missouri River, Florence is one of the oldest settlements in Nebraska, with roots dating back to the 1840s when pioneers established Winter Quarters in the area. Today, the neighborhood remains a vibrant community known for its historic landmarks, local businesses, and strong community traditions.
           </p>
           <p className="text-black text-lg leading-relaxed">
-            The Florence 5K invites runners and walkers of all levels to experience this historic district while supporting local organizations and community initiatives. The race will take participants through the scenic streets of historic Florence, highlighting the area&rsquo;s unique character and connection to Omaha&rsquo;s past.
+            The Florence 5K invites runners and walkers of all levels to experience this historic district while supporting local organizations and community initiatives.
           </p>
           <p className="text-black text-lg leading-relaxed">
             Whether you are chasing a new personal best, enjoying a morning walk with friends and family, or supporting the Florence community, this event is designed for everyone.
@@ -304,7 +304,7 @@ function About() {
               The Florence 5K is more than a race&mdash;it&rsquo;s a celebration of a neighborhood with deep historical roots and a strong sense of community. Florence was once an independent town before becoming part of Omaha in 1917 and remains one of the city&rsquo;s most historically significant neighborhoods.
             </p>
             <p className="text-black text-lg leading-relaxed font-semibold">
-              Come run Against the Current, support the Florence community, and help build a new tradition in North Omaha.
+              Come run Against the Current, support the Florence community, and help build a new tradition in Florence.
             </p>
           </div>
         </div>
@@ -555,11 +555,13 @@ function Partners() {
 
           {/* Florentine Players */}
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-navy-100 text-center">
-            <img
-              src="/images/florentine-players.png"
-              alt="The Florentine Players"
-              className="partner-logo mx-auto w-40 h-40 object-contain mb-6"
-            />
+            <a href="https://florentineplayers.com/index.html" target="_blank" rel="noopener noreferrer">
+              <img
+                src="/images/florentine-players.png"
+                alt="The Florentine Players"
+                className="partner-logo mx-auto w-40 h-40 object-contain mb-6"
+              />
+            </a>
             <h3 className="font-heading text-xl font-bold text-black mb-2">The Florentine Players</h3>
             <p className="text-black text-sm leading-relaxed">
               A beloved community theater group bringing the arts and culture to Florence, enriching the neighborhood through performance and storytelling.
