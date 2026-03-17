@@ -1,9 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState, useEffect } from 'react'
 
-/* ─── Registration Google Form URL ─── */
-/* Replace the URL below with your actual Google Form link */
-const REGISTRATION_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform'
+/* ─── Registration URL ─── */
+const REGISTRATION_FORM_URL = 'https://runsignup.com/Race/NE/Omaha/Florence5k'
 
 /* ─── Icon Components ─── */
 function CalendarIcon({ className }: { className?: string }) {
@@ -184,7 +183,7 @@ function Hero() {
           </span>
           <span className="flex items-center gap-2">
             <CalendarIcon className="w-5 h-5 text-gold-400" />
-            Coming Soon
+            May 16th &middot; 8:00 AM
           </span>
         </div>
 
@@ -335,8 +334,8 @@ function EventDetails() {
               <CalendarIcon className="w-8 h-8 text-gold-300" />
             </div>
             <h3 className="font-heading text-xl font-bold text-black mb-2">Date</h3>
-            <p className="text-black text-lg">Coming Soon</p>
-            <p className="text-black text-sm mt-1">Check back for updates</p>
+            <p className="text-black text-lg">May 16, 2026</p>
+            <p className="text-black text-sm mt-1">Saturday</p>
           </div>
 
           {/* Time */}
@@ -345,8 +344,8 @@ function EventDetails() {
               <ClockIcon className="w-8 h-8 text-burgundy-100" />
             </div>
             <h3 className="font-heading text-xl font-bold text-black mb-2">Time</h3>
-            <p className="text-black text-lg">Morning Start</p>
-            <p className="text-black text-sm mt-1">Exact time TBA</p>
+            <p className="text-black text-lg">8:00 AM</p>
+            <p className="text-black text-sm mt-1">Race start</p>
           </div>
 
           {/* Location */}
@@ -478,54 +477,22 @@ function Pricing() {
             Registration
           </h2>
           <p className="text-black text-lg max-w-2xl mx-auto mt-10">
-            Choose the registration option that&rsquo;s right for you
+            Sign up today and join us at the Florence 5K
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {/* Kids */}
-          <div className="pricing-card bg-white rounded-2xl shadow-sm border border-navy-100 overflow-hidden">
-            <div className="bg-gold-400 p-1" />
-            <div className="p-8 text-center">
-              <div className="bg-gold-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5">
-                <span className="text-3xl">&#127939;</span>
-              </div>
-              <h3 className="font-heading text-2xl font-bold text-black mb-2">Kids</h3>
-              <p className="text-black mb-6">Ages 12 &amp; under</p>
-              <div className="mb-8">
-                <span className="text-5xl font-heading font-bold text-black">$10</span>
-              </div>
-              <ul className="text-left space-y-3 mb-8 text-black">
-                <li className="flex items-center gap-2">
-                  <span className="text-gold-500 font-bold">&#10003;</span> Official race entry
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-gold-500 font-bold">&#10003;</span> Race day bib number
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-gold-500 font-bold">&#10003;</span> Finisher recognition
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-gold-500 font-bold">&#10003;</span> Supporting local history
-                </li>
-              </ul>
-              <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-gold-400 hover:bg-gold-500 text-black font-semibold py-3 px-6 rounded-full text-center transition-colors">
-                Register
-              </a>
-            </div>
-          </div>
-
-          {/* Adult - Featured */}
-          <div className="pricing-card bg-white rounded-2xl shadow-lg border-2 border-burgundy-600 overflow-hidden relative md:-mt-4 md:mb-[-16px]">
+        <div className="max-w-md mx-auto">
+          {/* Single Registration Option */}
+          <div className="pricing-card bg-white rounded-2xl shadow-lg border-2 border-burgundy-600 overflow-hidden">
             <div className="bg-burgundy-700 text-white text-center py-2 text-sm font-semibold tracking-wide uppercase">
-              Standard Registration
+              Race Registration
             </div>
             <div className="p-8 text-center">
               <div className="bg-burgundy-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5">
                 <RunIcon className="w-8 h-8 text-burgundy-600" />
               </div>
-              <h3 className="font-heading text-2xl font-bold text-black mb-2">Adult</h3>
-              <p className="text-black mb-6">Standard pricing</p>
+              <h3 className="font-heading text-2xl font-bold text-black mb-2">Florence 5K Entry</h3>
+              <p className="text-black mb-6">All ages welcome</p>
               <div className="mb-8">
                 <span className="text-5xl font-heading font-bold text-burgundy-700">$20</span>
               </div>
@@ -544,39 +511,7 @@ function Pricing() {
                 </li>
               </ul>
               <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary block w-full text-white font-semibold py-3 px-6 rounded-full text-center">
-                Register
-              </a>
-            </div>
-          </div>
-
-          {/* Discount */}
-          <div className="pricing-card bg-white rounded-2xl shadow-sm border border-navy-100 overflow-hidden">
-            <div className="bg-navy-600 p-1" />
-            <div className="p-8 text-center">
-              <div className="bg-navy-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5">
-                <span className="text-3xl">&#11088;</span>
-              </div>
-              <h3 className="font-heading text-2xl font-bold text-black mb-2">Discount</h3>
-              <p className="text-black mb-6">Early bird / group rate</p>
-              <div className="mb-8">
-                <span className="text-5xl font-heading font-bold text-black">$15</span>
-              </div>
-              <ul className="text-left space-y-3 mb-8 text-black">
-                <li className="flex items-center gap-2">
-                  <span className="text-navy-500 font-bold">&#10003;</span> Official race entry
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-navy-500 font-bold">&#10003;</span> Race day bib number
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-navy-500 font-bold">&#10003;</span> Finisher recognition
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-navy-500 font-bold">&#10003;</span> Supporting local history
-                </li>
-              </ul>
-              <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-navy-600 hover:bg-navy-700 text-white font-semibold py-3 px-6 rounded-full text-center transition-colors">
-                Register
+                Register on RunSignUp
               </a>
             </div>
           </div>
@@ -713,19 +648,11 @@ function AdminInfo() {
                 </div>
 
                 <div>
-                  <h4 className="font-heading text-lg font-bold text-black mb-3">Registration Fees</h4>
+                  <h4 className="font-heading text-lg font-bold text-black mb-3">Registration Fee</h4>
                   <ul className="space-y-3 text-black">
                     <li className="flex items-start gap-2">
                       <span className="text-gold-500 font-bold mt-0.5">&#10003;</span>
-                      <span><strong>Kids (12 &amp; under):</strong> $10</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 font-bold mt-0.5">&#10003;</span>
-                      <span><strong>Discount / Early Bird:</strong> $15</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 font-bold mt-0.5">&#10003;</span>
-                      <span><strong>Adult (Standard):</strong> $20</span>
+                      <span><strong>All Participants:</strong> $20</span>
                     </li>
                   </ul>
 
